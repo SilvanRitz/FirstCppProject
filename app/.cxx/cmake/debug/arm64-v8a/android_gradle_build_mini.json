@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/sile/Android/Sdk/ndk/21.0.6113669/build/cmake/android.toolchain.cmake",
+    "/home/sile/AndroidStudioProjects/FirstCppProject/app/src/main/cpp/CMakeLists.txt",
+    "/home/sile/Android/Sdk/ndk/21.0.6113669/build/cmake/platforms.cmake"
+  ],
+  "cleanCommands": [
+    "/home/sile/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/sile/AndroidStudioProjects/FirstCppProject/app/.cxx/cmake/debug/arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "/home/sile/Android/Sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/home/sile/AndroidStudioProjects/FirstCppProject/app/.cxx/cmake/debug/arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "native-lib-Debug-arm64-v8a": {
+      "artifactName": "native-lib",
+      "buildCommand": "/home/sile/Android/Sdk/cmake/3.10.2.4988404/bin/ninja -C \"/home/sile/AndroidStudioProjects/FirstCppProject/app/.cxx/cmake/debug/arm64-v8a\" native-lib",
+      "abi": "arm64-v8a",
+      "output": "/home/sile/AndroidStudioProjects/FirstCppProject/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so",
+      "runtimeFiles": []
+    }
+  }
+}

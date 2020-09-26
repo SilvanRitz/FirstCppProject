@@ -1,0 +1,7 @@
+Executable : /home/sile/Android/Sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/home/sile/AndroidStudioProjects/FirstCppProject/app/.cxx/cmake/release/x86
+native-lib
+jvmArgs : 
+
