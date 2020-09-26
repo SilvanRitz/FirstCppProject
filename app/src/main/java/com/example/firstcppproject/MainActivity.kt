@@ -16,44 +16,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val mqttHelper = MqttClientHelper(applicationContext)
+            val lightControl = MqttTfRemoteHelper(mqttHelper)
 
         val button_workplace_on = findViewById(R.id.button_workplace_on) as Button
             button_workplace_on.setOnClickListener {
-            Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-            mqttHelper.publish("tinkerforge/request/remote_switch_bricklet/v1g/switch_socket_b"
-                ,"{\"address\": 15978, \"switch_to\": \"on\", \"unit\":0}", qos=1)
+                lightControl.switchLightState(MqttTfRemoteHelper.LightPlace.WorkPlace, true)
         }
             val button_workplace_off = findViewById(R.id.button_workplace_off) as Button
             button_workplace_off.setOnClickListener {
-                Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-                mqttHelper.publish("tinkerforge/request/remote_switch_bricklet/v1g/switch_socket_b"
-                    ,"{\"address\": 15978, \"switch_to\": \"off\", \"unit\":0}", qos=1)
+                lightControl.switchLightState(MqttTfRemoteHelper.LightPlace.WorkPlace, false)
             }
 
             val button_couch_on = findViewById(R.id.button_couch_on) as Button
             button_couch_on.setOnClickListener {
-                Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-                mqttHelper.publish("tinkerforge/request/remote_switch_bricklet/v1g/switch_socket_b"
-                    ,"{\"address\": 15977, \"switch_to\": \"on\", \"unit\":0}", qos=1)
+//                Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
+                lightControl.switchLightState(MqttTfRemoteHelper.LightPlace.AboveCouch, true)
             }
             val button_couch_off = findViewById(R.id.button_couch_off) as Button
             button_couch_off.setOnClickListener {
-                Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-                mqttHelper.publish("tinkerforge/request/remote_switch_bricklet/v1g/switch_socket_b"
-                    ,"{\"address\": 15977, \"switch_to\": \"off\", \"unit\":0}", qos=1)
+                lightControl.switchLightState(MqttTfRemoteHelper.LightPlace.AboveCouch, false)
             }
 
             val button_living_room_on = findViewById(R.id.button_living_room_on) as Button
             button_living_room_on.setOnClickListener {
-                Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-                mqttHelper.publish("tinkerforge/request/remote_switch_bricklet/v1g/switch_socket_b"
-                    ,"{\"address\": 15976, \"switch_to\": \"on\", \"unit\":0}", qos=1)
+                lightControl.switchLightState(MqttTfRemoteHelper.LightPlace.LivingRoom, true)
             }
             val button_living_room_off = findViewById(R.id.button_living_room_off) as Button
             button_living_room_off.setOnClickListener {
-                Toast.makeText(this@MainActivity, "You clicked me.", Toast.LENGTH_SHORT).show()
-                mqttHelper.publish("tinkerforge/request/remote_switch_bricklet/v1g/switch_socket_b"
-                    ,"{\"address\": 15976, \"switch_to\": \"off\", \"unit\":0}", qos=1)
+                lightControl.switchLightState(MqttTfRemoteHelper.LightPlace.LivingRoom, false)
             }
 
     }
