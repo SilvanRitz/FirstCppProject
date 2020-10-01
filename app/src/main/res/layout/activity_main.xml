@@ -10,18 +10,61 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/title_lamp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Lampensteuerung"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/spacer_text_workroom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/text_broker_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Broker state"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/spacer_broker_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text=""
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/status_connected"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#F44336"
+                android:text="Disconnected" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/spacer_text_workroom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
         <TextView
             android:id="@+id/text_work_room"
             android:layout_width="match_parent"
@@ -40,15 +83,15 @@
                 android:id="@+id/button_workplace_on"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="On"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="On" />
 
             <Button
                 android:id="@+id/button_workplace_off"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Off"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Off" />
         </LinearLayout>
 
         <TextView
@@ -75,15 +118,15 @@
                 android:id="@+id/button_couch_on"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="On"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="On" />
 
             <Button
                 android:id="@+id/button_couch_off"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Off"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Off" />
         </LinearLayout>
 
         <TextView
@@ -110,20 +153,19 @@
                 android:id="@+id/button_living_room_on"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="On"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="On" />
 
             <Button
                 android:id="@+id/button_living_room_off"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Off"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Off" />
         </LinearLayout>
 
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

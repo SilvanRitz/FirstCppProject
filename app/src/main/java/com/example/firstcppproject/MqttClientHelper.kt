@@ -3,17 +3,20 @@ package com.example.firstcppproject
 import android.content.Context
 import android.net.Uri
 import android.util.Log
+import android.widget.Button
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 import org.eclipse.paho.client.mqttv3.MqttClient
+import java.util.*
 
 
-class MqttClientHelper(context: Context?) {
+class MqttClientHelper(context: Context?, onSuccess: ()->Unit, onFailed: ()->Unit) {
 
     companion object {
         const val TAG = "MqttClientHelper"
     }
-
+    val onSuccess = onSuccess
+    val onFailed = onFailed
     var mqttAndroidClient: MqttAndroidClient
     val serverAddr = "ssl://m21.cloudmqtt.com"
     val serverPort =28098
@@ -29,9 +32,10 @@ class MqttClientHelper(context: Context?) {
         mqttAndroidClient.setCallback(object : MqttCallbackExtended {
             override fun connectComplete(b: Boolean, s: String) {
                 Log.w(TAG, s)
+                onSuccess()
             }
 
-            override fun connectionLost(throwable: Throwable) {}
+            override fun connectionLost(throwable: Throwable) {onFailed()}
             @Throws(Exception::class)
             override fun messageArrived(
                 topic: String,
@@ -70,6 +74,7 @@ class MqttClientHelper(context: Context?) {
                     exception: Throwable
                 ) {
                     Log.w(TAG, "Failed to connect to: $serverUri ; $exception")
+                    onFailed()
                 }
             })
         } catch (ex: MqttException) {
