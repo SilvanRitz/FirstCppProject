@@ -15,8 +15,10 @@ class MqttClientHelper(context: Context?) {
     }
 
     var mqttAndroidClient: MqttAndroidClient
-    val serverUri = "tcp://192.168.1.28:1883"
-    private val clientId: String = MqttClient.generateClientId()
+    val serverAddr = "ssl://m21.cloudmqtt.com"
+    val serverPort =28098
+    val serverUri = serverAddr + ":"+serverPort.toString()
+    private val clientId: String = "test"
 
     fun setCallback(callback: MqttCallbackExtended?) {
         mqttAndroidClient.setCallback(callback)
@@ -49,6 +51,8 @@ class MqttClientHelper(context: Context?) {
         mqttConnectOptions.isCleanSession = false
         mqttConnectOptions.connectionTimeout = 10
         mqttConnectOptions.keepAliveInterval = 100
+        mqttConnectOptions.password = "test".toCharArray()
+        mqttConnectOptions.userName = "test"
         try {
             mqttAndroidClient.connect(mqttConnectOptions, null, object : IMqttActionListener {
                 override fun onSuccess(asyncActionToken: IMqttToken) {
